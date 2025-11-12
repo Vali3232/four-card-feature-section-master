@@ -1,0 +1,126 @@
+:root{
+    /* Colors */
+    --primary-red: hsl(0, 78%, 62%);
+    --primary-blue: hsl(212, 86%, 64%);
+    --primary-cyan: hsl(180, 62%, 55%);
+    --primary-orange: hsl(34, 97%, 64%);
+
+    --neutral-100: hsl(0, 0%, 100%);
+    --neutral-400: hsl(212, 6%, 44%);
+    --neutral-500: hsl(234, 12%, 34%);
+
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    /* Font Sisez */
+    --font-h1: 2.2rem;
+    --font-h2: 1.3rem;
+    --font-p: 1rem;
+    --font-small: 1rem;
+
+    /* Font Weights */
+    --fw-200: 200;
+    --fw-400: 400;
+    --fw-600: 600;
+
+    /* Spacing */
+    --margin: 1.5rem;
+    --margin-header-cards: 5rem;
+    --margin-h1-p: 0.8rem;
+    --padding: 1.5rem;
+    --padding-cards: 2rem;
+    --gap: 1.5rem;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: var(--neutral-100);
+    font-size: 62.5%;
+}
+
+/* Header*/
+
+.container{
+    display: grid;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: var(--font-h1);
+    font-weight: var(--fw-200);
+    color: var(--neutral-500);
+    margin: var(--margin);
+    margin-block-end: var(--margin-header-cards);
+}
+
+.header span{
+    font-weight: var(--fw-600);
+    color: var(--neutral-500);
+}
+
+.header p{
+    margin-block-start: var(--margin-h1-p);
+    font-size: var(--font-p);
+    font-weight: var(--fw-400);
+    color: var(--neutral-400);
+}
+
+/* Cards   ! it should look something la this -=- if it makes sense !   */
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    grid-template-areas:  
+        "empty card2 empty"
+        "card1 empty card4"
+        "empty card3 empty";
+    justify-items: center;
+}
+
+.cards > *{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--padding-cards);
+    width: 25rem;
+    height: 15rem;
+    border-radius: 0.3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.card1{
+    border-top: 4px solid var(--primary-cyan);
+}
+
+.card2{
+    border-top: 4px solid var(--primary-red);
+}
+
+.card3{
+    border-top: 4px solid var(--primary-orange);
+}
+
+.card4{
+    border-top: 4px solid var(--primary-blue);
+}
+
+.cards h2{
+    font-size: var(--font-h2);
+    font-weight: var(--fw-600);
+    color: var(--neutral-500);
+}
+
+.cards p{
+    font-size: var(--font-p);
+    font-weight: var(--fw-400);
+    color: var(--neutral-400);
+}
+
+.cards img{
+    align-self: flex-end;
+}
