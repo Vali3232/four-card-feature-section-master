@@ -143,6 +143,7 @@ body{
     .cards{
         border: 1px solid black;
         width: 90%;
+        margin: 0 auto;
         grid-template-areas:
             "card1 card3"
             "card2 card4";
