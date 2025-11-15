@@ -9,12 +9,12 @@
     --neutral-400: hsl(212, 6%, 44%);
     --neutral-500: hsl(234, 12%, 34%);
 
-    --box-shadow: 0 8px 20px hsl(212, 86%, 64%, 0.3);
+    --box-shadow: 0 8px 20px hsla(212, 6%, 44%, 0.3);
 
     /* Font Sisez */
-    --font-h1: clamp(1.6rem, 1.029rem + 1.524vw, 2.4rem);
+    --font-h1: clamp(1.5rem, 1.2rem + 1.524vw, 2.4rem);
     --font-h2: 1.3rem;
-    --font-p: clamp(1rem, 0.786rem + 0.571vw, 1.3rem);
+    --font-p: clamp(1.2rem, 0.786rem + 0.571vw, 1.3rem);
     --font-small: 1rem;
 
     /* Font Weights */
@@ -24,10 +24,11 @@
 
     /* Spacing */
     --margin: 1.5rem;
-    --margin-header-cards: 5rem;
+    --margin-header-cards: 4rem;
     --margin-h1-p: 0.8rem;
     --padding: 1.5rem;
     --padding-cards: 2rem;
+    --padding-cards-img: 2rem;
     --gap: 1.5rem;
 }
 
@@ -35,7 +36,6 @@ body{
     font-family: "Poppins", sans-serif;
     background-color: var(--neutral-100);
     font-size: 62.5%;
-    margin: var(--margin);
 }
 
 /* Header*/
@@ -48,8 +48,8 @@ body{
     font-size: var(--font-h1);
     font-weight: var(--fw-200);
     color: var(--neutral-500);
-    margin: var(--margin);
-    margin-block-end: var(--margin-header-cards);
+    margin-block: var(--margin-header-cards);
+    padding-inline: var(--padding);
 }
 
 .header span{
@@ -64,19 +64,19 @@ body{
     color: var(--neutral-500);
 }
 
-/* Cards   ! it should look something la this -=- if it makes sense !   */
+/* Cards */
 
 .cards{
     display: grid;
+    max-width: 1300px;
+    margin: 0 auto;
     grid-template-areas:
-        ". card2 ."
-        "card1 card2 card4"
-        "card1 card3 card4"
-        ". card3 .";
-
+            "card1"
+            "card2"
+            "card3 "
+            "card4";
     gap: var(--padding-cards);
-    justify-content: center;
-    margin-inline: 0 auto;
+    padding-inline: var(--margin);
 }
     
 
@@ -86,26 +86,26 @@ body{
     justify-content: space-between;
     align-items: flex-start;
     padding: var(--padding-cards);
-    width: 35em;
-    height: 25em;
-    border-radius: 0.3rem;
+    border-radius: 0.4rem;
     box-shadow: var(--box-shadow);
+    max-width: 25rem;
+    margin: 0 auto;
 }
 
 .card1{
-    border-top: 4px solid var(--primary-cyan);
+    border-top: 6px solid var(--primary-cyan);
 }
 
 .card2{
-    border-top: 4px solid var(--primary-red);
+    border-top: 6px solid var(--primary-red);
 }
 
 .card3{
-    border-top: 4px solid var(--primary-orange);
+    border-top: 6px solid var(--primary-orange);
 }
 
 .card4{
-    border-top: 4px solid var(--primary-blue);
+    border-top: 6px solid var(--primary-blue);
 }
 
 .cards h2{
@@ -122,65 +122,55 @@ body{
 
 .cards img{
     align-self: flex-end;
+    padding-block: var(--padding-cards-img);
 }
+
+/*Atribution*/
 
 .attribution{
+    padding-block: var(--padding);
     text-align: center;
+    font-size: var(--font-p);
+    color: var(--neutral-400);
 }
 
-/*Media Querys*/
-
-@media (max-width: 80rem) {
-        .cards {
-        border: 1px solid black;
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .cards>* {
-        width: 20rem;
-        height: 17rem;
-    }
-
+.attribution a{
+    font-weight: var(--fw-600);
+    cursor: pointer;
 }
 
-@media (max-width: 48rem) {
+.attribution a:hover{
+    text-decoration: underline;
+    color: black;
+    background-color: var(--neutral-400);
+    border-radius: 5px;
+}
 
-    html{
-        font-size: 
-    }
+/*Media Querys ----------------------------------*/
 
-    .cards{
-        border: 1px solid black;
-        width: 90%;
-        margin: 0 auto;
+@media (min-width: 48rem) {
+
+    .cards {
         grid-template-areas:
-            "card1 card3"
-            "card2 card4";
+        "card1 card3"
+        "card2 card4";
     }
 
     .cards > * {
-        width: fit-content;
-        height: 17em;
-}
-
-    
-}
-
-/*@media (min-width: 576px){
-
-    .cards {
-        display: grid;
-        grid-template-areas:
-                "card1"
-                "card2"
-                "card3 "
-                "card4";
-        gap: var(--padding-cards);
-        justify-content: center;
-        }
-
-    .cards > *{
-        width: auto;
+        height: 19rem;
     }
-}*/
+    
+    .cards img{
+        padding-block: var(--padding-cards-img) 0;
+    }
+}
+
+@media (min-width: 64rem) {
+    .cards{
+        grid-template-areas:
+            ". card2 ."
+            "card1 card2 card4"
+            "card1 card3 card4"
+            ". card3 .";
+    }
+}
