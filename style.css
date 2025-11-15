@@ -40,10 +40,6 @@ body{
 
 /* Header*/
 
-.container{
-    
-}
-
 .header{
     display: flex;
     flex-direction: column;
@@ -80,7 +76,7 @@ body{
 
     gap: var(--padding-cards);
     justify-content: center;
-    margin: var(--margin);
+    margin-inline: 0 auto;
 }
     
 
@@ -134,7 +130,21 @@ body{
 
 /*Media Querys*/
 
-@media (max-width: 64rem) {
+@media (max-width: 80rem) {
+        .cards {
+        border: 1px solid black;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .cards>* {
+        width: 20rem;
+        height: 17rem;
+    }
+
+}
+
+@media (max-width: 48rem) {
 
     html{
         font-size: 
@@ -151,7 +161,7 @@ body{
 
     .cards > * {
         width: fit-content;
-        height: 17rem;
+        height: 17em;
 }
 
     
