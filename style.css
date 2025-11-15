@@ -9,12 +9,12 @@
     --neutral-400: hsl(212, 6%, 44%);
     --neutral-500: hsl(234, 12%, 34%);
 
-    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 8px 20px hsl(212, 86%, 64%, 0.3);
 
     /* Font Sisez */
-    --font-h1: 2.2rem;
+    --font-h1: clamp(1.6rem, 1.029rem + 1.524vw, 2.4rem);
     --font-h2: 1.3rem;
-    --font-p: 1rem;
+    --font-p: clamp(1rem, 0.786rem + 0.571vw, 1.3rem);
     --font-small: 1rem;
 
     /* Font Weights */
@@ -35,12 +35,13 @@ body{
     font-family: "Poppins", sans-serif;
     background-color: var(--neutral-100);
     font-size: 62.5%;
+    margin: var(--margin);
 }
 
 /* Header*/
 
 .container{
-    display: grid;
+    
 }
 
 .header{
@@ -64,31 +65,33 @@ body{
     margin-block-start: var(--margin-h1-p);
     font-size: var(--font-p);
     font-weight: var(--fw-400);
-    color: var(--neutral-400);
+    color: var(--neutral-500);
 }
 
 /* Cards   ! it should look something la this -=- if it makes sense !   */
 
 .cards{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 1rem;
-    grid-template-areas:  
-        "empty card2 empty"
-        "card1 empty card4"
-        "empty card3 empty";
-    justify-items: center;
-}
+    grid-template-areas:
+        ". card2 ."
+        "card1 card2 card4"
+        "card1 card3 card4"
+        ". card3 .";
 
-.cards > *{
+    gap: var(--padding-cards);
+    justify-content: center;
+    margin: var(--margin);
+}
+    
+
+.cards > * {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     padding: var(--padding-cards);
-    width: 25rem;
-    height: 15rem;
+    width: 35em;
+    height: 25em;
     border-radius: 0.3rem;
     box-shadow: var(--box-shadow);
 }
@@ -124,3 +127,48 @@ body{
 .cards img{
     align-self: flex-end;
 }
+
+.attribution{
+    text-align: center;
+}
+
+/*Media Querys*/
+
+@media (max-width: 64rem) {
+
+    html{
+        font-size: 
+    }
+
+    .cards{
+        border: 1px solid black;
+        width: 90%;
+        grid-template-areas:
+            "card1 card3"
+            "card2 card4";
+    }
+
+    .cards > * {
+        
+    }
+
+    
+}
+
+/*@media (min-width: 576px){
+
+    .cards {
+        display: grid;
+        grid-template-areas:
+                "card1"
+                "card2"
+                "card3 "
+                "card4";
+        gap: var(--padding-cards);
+        justify-content: center;
+        }
+
+    .cards > *{
+        width: auto;
+    }
+}*/
